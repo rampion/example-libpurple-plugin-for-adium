@@ -1,0 +1,627 @@
+  pidgin-2.4.2/libpurple/account.c: 
+    purple_signal_register(handle, "account-connecting",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT));
+
+    purple_signal_register(handle, "account-disabled",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT));
+
+    purple_signal_register(handle, "account-enabled",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT));
+
+    purple_signal_register(handle, "account-setting-info",
+               purple_marshal_VOID__POINTER_POINTER, NULL, 2,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new(PURPLE_TYPE_STRING));
+
+    purple_signal_register(handle, "account-set-info",
+               purple_marshal_VOID__POINTER_POINTER, NULL, 2,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new(PURPLE_TYPE_STRING));
+
+    purple_signal_register(handle, "account-added",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE, PURPLE_SUBTYPE_ACCOUNT));
+
+    purple_signal_register(handle, "account-removed",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE, PURPLE_SUBTYPE_ACCOUNT));
+
+    purple_signal_register(handle, "account-status-changed",
+               purple_marshal_VOID__POINTER_POINTER_POINTER, NULL, 3,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_STATUS),
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_STATUS));
+
+    purple_signal_register(handle, "account-alias-changed",
+               purple_marshal_VOID__POINTER_POINTER, NULL, 2,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new(PURPLE_TYPE_STRING));
+
+    purple_signal_register(handle, "account-authorization-requested",
+              purple_marshal_INT__POINTER_POINTER,
+              purple_value_new(PURPLE_TYPE_INT), 2,
+              purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+              purple_value_new(PURPLE_TYPE_STRING));
+
+    purple_signal_register(handle, "account-authorization-denied",
+              purple_marshal_VOID__POINTER_POINTER, NULL, 2,
+              purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+              purple_value_new(PURPLE_TYPE_STRING));
+
+    purple_signal_register(handle, "account-authorization-granted",
+              purple_marshal_VOID__POINTER_POINTER, NULL, 2,
+              purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+              purple_value_new(PURPLE_TYPE_STRING));
+
+    purple_signal_register(handle, "account-error-changed",
+                           purple_marshal_VOID__POINTER_POINTER_POINTER,
+                           NULL, 3,
+                           purple_value_new(PURPLE_TYPE_SUBTYPE,
+                                            PURPLE_SUBTYPE_ACCOUNT),
+                           purple_value_new(PURPLE_TYPE_POINTER),
+                           purple_value_new(PURPLE_TYPE_POINTER));
+
+  pidgin-2.4.2/libpurple/blist.c: 
+    purple_signal_register(handle, "buddy-status-changed",
+                         purple_marshal_VOID__POINTER_POINTER_POINTER, NULL,
+                         3,
+                         purple_value_new(PURPLE_TYPE_SUBTYPE,
+                                        PURPLE_SUBTYPE_BLIST_BUDDY),
+                         purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_STATUS),
+                         purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_STATUS));
+    purple_signal_register(handle, "buddy-privacy-changed",
+                         purple_marshal_VOID__POINTER, NULL,
+                         1,
+                         purple_value_new(PURPLE_TYPE_SUBTYPE,
+                                        PURPLE_SUBTYPE_BLIST_BUDDY));
+
+    purple_signal_register(handle, "buddy-idle-changed",
+                         purple_marshal_VOID__POINTER_INT_INT, NULL,
+                         3,
+                         purple_value_new(PURPLE_TYPE_SUBTYPE,
+                                        PURPLE_SUBTYPE_BLIST_BUDDY),
+                         purple_value_new(PURPLE_TYPE_INT),
+                         purple_value_new(PURPLE_TYPE_INT));
+
+
+    purple_signal_register(handle, "buddy-signed-on",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_BLIST_BUDDY));
+
+    purple_signal_register(handle, "buddy-signed-off",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_BLIST_BUDDY));
+
+    purple_signal_register(handle, "buddy-got-login-time",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_BLIST_BUDDY));
+
+    purple_signal_register(handle, "buddy-added",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_BLIST_BUDDY));
+
+    purple_signal_register(handle, "buddy-removed",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_BLIST_BUDDY));
+
+    purple_signal_register(handle, "buddy-icon-changed",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_BLIST_BUDDY));
+
+    purple_signal_register(handle, "update-idle", purple_marshal_VOID, NULL, 0);
+
+    purple_signal_register(handle, "blist-node-extended-menu",
+             purple_marshal_VOID__POINTER_POINTER, NULL, 2,
+             purple_value_new(PURPLE_TYPE_SUBTYPE,
+                PURPLE_SUBTYPE_BLIST_NODE),
+             purple_value_new(PURPLE_TYPE_BOXED, "GList **"));
+
+    purple_signal_register(handle, "blist-node-aliased",
+               purple_marshal_VOID__POINTER_POINTER, NULL, 2,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_BLIST_NODE),
+               purple_value_new(PURPLE_TYPE_STRING));
+
+  pidgin-2.4.2/libpurple/certificate.c:
+    purple_signal_register(pool, /* Signals emitted from pool */
+               "certificate-stored",
+               purple_marshal_VOID__POINTER_POINTER,
+               NULL, /* No callback return value */
+               2,    /* Two non-data arguments */
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+              PURPLE_SUBTYPE_CERTIFICATEPOOL),
+               purple_value_new(PURPLE_TYPE_STRING));
+
+    purple_signal_register(pool, /* Signals emitted from pool */
+               "certificate-deleted",
+               purple_marshal_VOID__POINTER_POINTER,
+               NULL, /* No callback return value */
+               2,    /* Two non-data arguments */
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+              PURPLE_SUBTYPE_CERTIFICATEPOOL),
+               purple_value_new(PURPLE_TYPE_STRING));
+
+  pidgin-2.4.2/libpurple/cipher.c:
+    purple_signal_register(handle, "cipher-added",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CIPHER));
+    purple_signal_register(handle, "cipher-removed",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CIPHER));
+
+  pidgin-2.4.2/libpurple/connection.c:
+    purple_signal_register(handle, "signing-on",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONNECTION));
+
+    purple_signal_register(handle, "signed-on",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONNECTION));
+
+    purple_signal_register(handle, "signing-off",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONNECTION));
+
+    purple_signal_register(handle, "signed-off",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONNECTION));
+
+    purple_signal_register(handle, "connection-error",
+                           purple_marshal_VOID__POINTER_INT_POINTER, NULL, 3,
+                           purple_value_new(PURPLE_TYPE_SUBTYPE,
+                                            PURPLE_SUBTYPE_CONNECTION),
+                           purple_value_new(PURPLE_TYPE_ENUM),
+                           purple_value_new(PURPLE_TYPE_STRING));
+
+  pidgin-2.4.2/libpurple/conversation.c:  
+    purple_signal_register(handle, "writing-im-msg",
+               purple_marshal_BOOLEAN__POINTER_POINTER_POINTER_POINTER_UINT,
+               purple_value_new(PURPLE_TYPE_BOOLEAN), 5,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new_outgoing(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION),
+               purple_value_new(PURPLE_TYPE_UINT));
+
+    purple_signal_register(handle, "wrote-im-msg",
+               purple_marshal_VOID__POINTER_POINTER_POINTER_POINTER_UINT,
+               NULL, 5,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION),
+               purple_value_new(PURPLE_TYPE_UINT));
+
+    purple_signal_register(handle, "sending-im-msg",
+               purple_marshal_VOID__POINTER_POINTER_POINTER,
+               NULL, 3,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new_outgoing(PURPLE_TYPE_STRING));
+
+    purple_signal_register(handle, "sent-im-msg",
+               purple_marshal_VOID__POINTER_POINTER_POINTER,
+               NULL, 3,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_STRING));
+
+    purple_signal_register(handle, "receiving-im-msg",
+               purple_marshal_BOOLEAN__POINTER_POINTER_POINTER_POINTER_POINTER,
+               purple_value_new(PURPLE_TYPE_BOOLEAN), 5,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new_outgoing(PURPLE_TYPE_STRING),
+               purple_value_new_outgoing(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION),
+               purple_value_new_outgoing(PURPLE_TYPE_UINT));
+
+    purple_signal_register(handle, "received-im-msg",
+               purple_marshal_VOID__POINTER_POINTER_POINTER_POINTER_UINT,
+               NULL, 5,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION),
+               purple_value_new(PURPLE_TYPE_UINT));
+
+    purple_signal_register(handle, "writing-chat-msg",
+               purple_marshal_BOOLEAN__POINTER_POINTER_POINTER_POINTER_UINT,
+               purple_value_new(PURPLE_TYPE_BOOLEAN), 5,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new_outgoing(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION),
+               purple_value_new(PURPLE_TYPE_UINT));
+
+    purple_signal_register(handle, "wrote-chat-msg",
+               purple_marshal_VOID__POINTER_POINTER_POINTER_POINTER_UINT,
+               NULL, 5,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION),
+               purple_value_new(PURPLE_TYPE_UINT));
+
+    purple_signal_register(handle, "sending-chat-msg",
+               purple_marshal_VOID__POINTER_POINTER_UINT, NULL, 3,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new_outgoing(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_UINT));
+
+    purple_signal_register(handle, "sent-chat-msg",
+               purple_marshal_VOID__POINTER_POINTER_UINT, NULL, 3,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_UINT));
+
+    purple_signal_register(handle, "receiving-chat-msg",
+               purple_marshal_BOOLEAN__POINTER_POINTER_POINTER_POINTER_POINTER,
+               purple_value_new(PURPLE_TYPE_BOOLEAN), 5,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new_outgoing(PURPLE_TYPE_STRING),
+               purple_value_new_outgoing(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION),
+               purple_value_new_outgoing(PURPLE_TYPE_UINT));
+
+    purple_signal_register(handle, "received-chat-msg",
+               purple_marshal_VOID__POINTER_POINTER_POINTER_POINTER_UINT,
+               NULL, 5,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION),
+               purple_value_new(PURPLE_TYPE_UINT));
+
+    purple_signal_register(handle, "conversation-created",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION));
+
+    purple_signal_register(handle, "conversation-updated",
+               purple_marshal_VOID__POINTER_UINT, NULL, 2,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION),
+               purple_value_new(PURPLE_TYPE_UINT));
+
+    purple_signal_register(handle, "deleting-conversation",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION));
+
+    purple_signal_register(handle, "buddy-typing",
+               purple_marshal_VOID__POINTER_POINTER, NULL, 2,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new(PURPLE_TYPE_STRING));
+
+    purple_signal_register(handle, "buddy-typed",
+               purple_marshal_VOID__POINTER_POINTER, NULL, 2,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new(PURPLE_TYPE_STRING));
+
+    purple_signal_register(handle, "buddy-typing-stopped",
+               purple_marshal_VOID__POINTER_POINTER, NULL, 2,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new(PURPLE_TYPE_STRING));
+
+    purple_signal_register(handle, "chat-buddy-joining",
+               purple_marshal_BOOLEAN__POINTER_POINTER_UINT,
+               purple_value_new(PURPLE_TYPE_BOOLEAN), 3,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_UINT));
+
+    purple_signal_register(handle, "chat-buddy-joined",
+               purple_marshal_VOID__POINTER_POINTER_UINT_UINT, NULL, 4,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_UINT),
+               purple_value_new(PURPLE_TYPE_BOOLEAN));
+
+    purple_signal_register(handle, "chat-buddy-flags",
+               purple_marshal_VOID__POINTER_POINTER_UINT_UINT, NULL, 4,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_UINT),
+               purple_value_new(PURPLE_TYPE_UINT));
+
+    purple_signal_register(handle, "chat-buddy-leaving",
+               purple_marshal_BOOLEAN__POINTER_POINTER_POINTER,
+               purple_value_new(PURPLE_TYPE_BOOLEAN), 3,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_STRING));
+
+    purple_signal_register(handle, "chat-buddy-left",
+               purple_marshal_VOID__POINTER_POINTER_POINTER, NULL, 3,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_STRING));
+
+    purple_signal_register(handle, "chat-inviting-user",
+               purple_marshal_VOID__POINTER_POINTER_POINTER, NULL, 3,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new_outgoing(PURPLE_TYPE_STRING));
+
+    purple_signal_register(handle, "chat-invited-user",
+               purple_marshal_VOID__POINTER_POINTER_POINTER, NULL, 3,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_STRING));
+
+    purple_signal_register(handle, "chat-invited",
+               purple_marshal_INT__POINTER_POINTER_POINTER_POINTER_POINTER,
+               purple_value_new(PURPLE_TYPE_INT), 5,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_POINTER));
+
+    purple_signal_register(handle, "chat-joined",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION));
+
+    purple_signal_register(handle, "chat-left",
+               purple_marshal_VOID__POINTER, NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION));
+
+    purple_signal_register(handle, "chat-topic-changed",
+               purple_marshal_VOID__POINTER_POINTER_POINTER, NULL, 3,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_CONVERSATION),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_STRING));
+
+    purple_signal_register(handle, "conversation-extended-menu",
+             purple_marshal_VOID__POINTER_POINTER, NULL, 2,
+             purple_value_new(PURPLE_TYPE_SUBTYPE,
+                PURPLE_SUBTYPE_CONVERSATION),
+             purple_value_new(PURPLE_TYPE_BOXED, "GList **"));
+
+  pidgin-2.4.2/libpurple/core.c:  
+    purple_signal_register(core, "uri-handler",
+      purple_marshal_BOOLEAN__POINTER_POINTER_POINTER,
+      purple_value_new(PURPLE_TYPE_BOOLEAN), 3,
+      purple_value_new(PURPLE_TYPE_STRING), /* Protocol */
+      purple_value_new(PURPLE_TYPE_STRING), /* Command */
+      purple_value_new(PURPLE_TYPE_BOXED, "GHashTable *")); /* Parameters */
+
+    purple_signal_register(core, "quitting", purple_marshal_VOID, NULL, 0);
+
+  pidgin-2.4.2/libpurple/dbus-server.c: 
+    purple_signal_register(purple_dbus_get_handle(), "dbus-method-called",
+         purple_marshal_BOOLEAN__POINTER_POINTER,
+         purple_value_new(PURPLE_TYPE_BOOLEAN), 2,
+         purple_value_new(PURPLE_TYPE_POINTER),
+         purple_value_new(PURPLE_TYPE_POINTER));
+
+    purple_signal_register(purple_dbus_get_handle(), "dbus-introspect",
+         purple_marshal_VOID__POINTER, NULL, 1,
+         purple_value_new_outgoing(PURPLE_TYPE_POINTER));
+
+  pidgin-2.4.2/libpurple/ft.c:  
+    purple_signal_register(handle, "file-recv-accept",
+                         purple_marshal_VOID__POINTER, NULL, 1,
+                         purple_value_new(PURPLE_TYPE_SUBTYPE,
+                                        PURPLE_SUBTYPE_XFER));
+    purple_signal_register(handle, "file-send-accept",
+                         purple_marshal_VOID__POINTER, NULL, 1,
+                         purple_value_new(PURPLE_TYPE_SUBTYPE,
+                                        PURPLE_SUBTYPE_XFER));
+    purple_signal_register(handle, "file-recv-start",
+                         purple_marshal_VOID__POINTER, NULL, 1,
+                         purple_value_new(PURPLE_TYPE_SUBTYPE,
+                                        PURPLE_SUBTYPE_XFER));
+    purple_signal_register(handle, "file-send-start",
+                         purple_marshal_VOID__POINTER, NULL, 1,
+                         purple_value_new(PURPLE_TYPE_SUBTYPE,
+                                        PURPLE_SUBTYPE_XFER));
+    purple_signal_register(handle, "file-send-cancel",
+                         purple_marshal_VOID__POINTER, NULL, 1,
+                         purple_value_new(PURPLE_TYPE_SUBTYPE,
+                                        PURPLE_SUBTYPE_XFER));
+    purple_signal_register(handle, "file-recv-cancel",
+                         purple_marshal_VOID__POINTER, NULL, 1,
+                         purple_value_new(PURPLE_TYPE_SUBTYPE,
+                                        PURPLE_SUBTYPE_XFER));
+    purple_signal_register(handle, "file-send-complete",
+                         purple_marshal_VOID__POINTER, NULL, 1,
+                         purple_value_new(PURPLE_TYPE_SUBTYPE,
+                                        PURPLE_SUBTYPE_XFER));
+    purple_signal_register(handle, "file-recv-complete",
+                         purple_marshal_VOID__POINTER, NULL, 1,
+                         purple_value_new(PURPLE_TYPE_SUBTYPE,
+                                        PURPLE_SUBTYPE_XFER));
+    purple_signal_register(handle, "file-recv-request",
+                         purple_marshal_VOID__POINTER, NULL, 1,
+                         purple_value_new(PURPLE_TYPE_SUBTYPE,
+                                        PURPLE_SUBTYPE_XFER));
+
+  pidgin-2.4.2/libpurple/imgstore.c:  
+    purple_signal_register(handle, "image-deleting",
+                           purple_marshal_VOID__POINTER, NULL,
+                           1,
+                           purple_value_new(PURPLE_TYPE_SUBTYPE,
+                                            PURPLE_SUBTYPE_STORED_IMAGE));
+
+  pidgin-2.4.2/libpurple/log.c: 
+    purple_signal_register(handle, "log-timestamp",
+  #if SIZEOF_TIME_T == 4
+                         purple_marshal_POINTER__POINTER_INT_BOOLEAN,
+  #elif SIZEOF_TIME_T == 8
+             purple_marshal_POINTER__POINTER_INT64_BOOLEAN,
+  #else
+  #error Unknown size of time_t
+  #endif
+                         purple_value_new(PURPLE_TYPE_STRING), 3,
+                         purple_value_new(PURPLE_TYPE_SUBTYPE,
+                                        PURPLE_SUBTYPE_LOG),
+  #if SIZEOF_TIME_T == 4
+                         purple_value_new(PURPLE_TYPE_INT),
+  #elif SIZEOF_TIME_T == 8
+                         purple_value_new(PURPLE_TYPE_INT64),
+  #else
+  # error Unknown size of time_t
+  #endif
+                         purple_value_new(PURPLE_TYPE_BOOLEAN));
+
+  pidgin-2.4.2/libpurple/network.c: 
+    purple_signal_register(purple_network_get_handle(), "network-configuration-changed",
+                 purple_marshal_VOID, NULL, 0);
+
+  pidgin-2.4.2/libpurple/notify.c:  
+    purple_signal_register(handle, "displaying-email-notification",
+               purple_marshal_VOID__POINTER_POINTER_POINTER_POINTER, NULL, 4,
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_STRING));
+
+    purple_signal_register(handle, "displaying-emails-notification",
+               purple_marshal_VOID__POINTER_POINTER_POINTER_POINTER_UINT, NULL, 5,
+               purple_value_new(PURPLE_TYPE_POINTER),
+               purple_value_new(PURPLE_TYPE_POINTER),
+               purple_value_new(PURPLE_TYPE_POINTER),
+               purple_value_new(PURPLE_TYPE_POINTER),
+               purple_value_new(PURPLE_TYPE_UINT));
+
+    purple_signal_register(handle, "displaying-userinfo",
+               purple_marshal_VOID__POINTER_POINTER_POINTER, NULL, 3,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_ACCOUNT),
+               purple_value_new(PURPLE_TYPE_STRING),
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_USERINFO));
+
+  pidgin-2.4.2/libpurple/plugin.c:  
+    purple_signal_register(handle, "plugin-load",
+               purple_marshal_VOID__POINTER,
+               NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_PLUGIN));
+    purple_signal_register(handle, "plugin-unload",
+               purple_marshal_VOID__POINTER,
+               NULL, 1,
+               purple_value_new(PURPLE_TYPE_SUBTYPE,
+                      PURPLE_SUBTYPE_PLUGIN));
+
+  pidgin-2.4.2/libpurple/protocols/irc/irc.c: 
+    purple_signal_register(plugin, "irc-sending-text",
+             purple_marshal_VOID__POINTER_POINTER, NULL, 2,
+             purple_value_new(PURPLE_TYPE_SUBTYPE, PURPLE_SUBTYPE_CONNECTION),
+             purple_value_new_outgoing(PURPLE_TYPE_STRING));
+    purple_signal_register(plugin, "irc-receiving-text",
+             purple_marshal_VOID__POINTER_POINTER, NULL, 2,
+             purple_value_new(PURPLE_TYPE_SUBTYPE, PURPLE_SUBTYPE_CONNECTION),
+             purple_value_new_outgoing(PURPLE_TYPE_STRING));
+
+  pidgin-2.4.2/libpurple/protocols/jabber/libxmpp.c:  
+    purple_signal_register(plugin, "jabber-receiving-xmlnode",
+        purple_marshal_VOID__POINTER_POINTER, NULL, 2,
+        purple_value_new(PURPLE_TYPE_SUBTYPE, PURPLE_SUBTYPE_CONNECTION),
+        purple_value_new_outgoing(PURPLE_TYPE_SUBTYPE, PURPLE_SUBTYPE_XMLNODE));
+
+    purple_signal_register(plugin, "jabber-sending-xmlnode",
+        purple_marshal_VOID__POINTER_POINTER, NULL, 2,
+        purple_value_new(PURPLE_TYPE_SUBTYPE, PURPLE_SUBTYPE_CONNECTION),
+        purple_value_new_outgoing(PURPLE_TYPE_SUBTYPE, PURPLE_SUBTYPE_XMLNODE));
+
+    purple_signal_register(plugin, "jabber-sending-text",
+             purple_marshal_VOID__POINTER_POINTER, NULL, 2,
+             purple_value_new(PURPLE_TYPE_SUBTYPE, PURPLE_SUBTYPE_CONNECTION),
+             purple_value_new_outgoing(PURPLE_TYPE_STRING));
+           
+  pidgin-2.4.2/libpurple/savedstatuses.c: 
+    purple_signal_register(handle, "savedstatus-changed",
+             purple_marshal_VOID__POINTER_POINTER, NULL, 2,
+             purple_value_new(PURPLE_TYPE_SUBTYPE,
+                    PURPLE_SUBTYPE_SAVEDSTATUS),
+             purple_value_new(PURPLE_TYPE_SUBTYPE,
+                    PURPLE_SUBTYPE_SAVEDSTATUS));
+
+    purple_signal_register(handle, "savedstatus-added",
+      purple_marshal_VOID__POINTER, NULL, 1,
+      purple_value_new(PURPLE_TYPE_SUBTYPE,
+        PURPLE_SUBTYPE_SAVEDSTATUS));
+
+    purple_signal_register(handle, "savedstatus-deleted",
+      purple_marshal_VOID__POINTER, NULL, 1,
+      purple_value_new(PURPLE_TYPE_SUBTYPE,
+        PURPLE_SUBTYPE_SAVEDSTATUS));
+
+    purple_signal_register(handle, "savedstatus-modified",
+      purple_marshal_VOID__POINTER, NULL, 1,
+      purple_value_new(PURPLE_TYPE_SUBTYPE,
+        PURPLE_SUBTYPE_SAVEDSTATUS));
+
+  pidgin-2.4.2/libpurple/sound.c: 
+    purple_signal_register(handle, "playing-sound-event",
+                         purple_marshal_BOOLEAN__INT_POINTER,
+                         purple_value_new(PURPLE_TYPE_BOOLEAN), 2,
+                         purple_value_new(PURPLE_TYPE_INT),
+                         purple_value_new(PURPLE_TYPE_SUBTYPE,
+                                        PURPLE_SUBTYPE_ACCOUNT));
+
